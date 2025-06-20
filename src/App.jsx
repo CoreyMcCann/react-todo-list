@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import CssBaseline from '@mui/material/CssBaseline'
 import './App.css'
+import TodoList from './TodoList'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ function App() {
     <>
       <CssBaseline />
       <h1> todos </h1>
+      <TodoList />
     </>
   )
 }
