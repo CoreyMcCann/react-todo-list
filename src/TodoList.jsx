@@ -18,9 +18,7 @@ export default function TodoList() {
     }, [todos]);
 
     const removeTodo = (id) => {
-        setTodos(todos.filter(prevTodos => {
-            return prevTodos.filter((t) => t.id !== id);
-        }))
+        setTodos(prevTodos => prevTodos.filter(t => t.id !== id));
     }
 
     const toggleTodo = (id) => {
