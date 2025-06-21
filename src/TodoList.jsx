@@ -3,6 +3,7 @@ import * as React from 'react';
 import List from '@mui/material/List';
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
+import { Box, Typography } from '@mui/material'
 
 const getInitialData = () => {
     const data = JSON.parse(localStorage.getItem("todos"));
@@ -39,17 +40,28 @@ export default function TodoList() {
     }
 
     return (
-        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-            {todos.map(todo => (
-                <TodoItem 
-                    todo={todo} 
-                    key={todo.id} 
-                    remove={removeTodo} 
-                    toggle={toggleTodo}
-                />
-            ))}
-            <TodoForm addTodo={addTodo} />
-        </List> 
+        <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+            m: 3
+        }}>
+            <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
+                React Todos
+            </Typography>
+            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                {todos.map(todo => (
+                    <TodoItem 
+                        todo={todo} 
+                        key={todo.id} 
+                        remove={removeTodo} 
+                        toggle={toggleTodo}
+                    />
+                ))}
+                <TodoForm addTodo={addTodo} />
+            </List>
+        </Box> 
     );
 }
 
